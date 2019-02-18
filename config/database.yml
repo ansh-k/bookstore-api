@@ -1,0 +1,21 @@
+# PostgreSQL
+
+default: &default
+  database: "bookmark_api"
+  username: "postgres" 
+  password: "postgres" 
+  host: localhost
+  port: 5432
+  adapter: postgresql
+  schema_search_path: public
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+test:
+  <<: *default
+staging:
+  <<: *default
+production:
+  <<: *default
