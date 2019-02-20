@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.2'
 # gem 'sqlite3'
 
 # PostgreSQL database
-gem 'pg',                       '~> 1.0.0'
+gem 'pg', '~> 1.0.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -41,6 +41,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop', require: false
 end
 
 

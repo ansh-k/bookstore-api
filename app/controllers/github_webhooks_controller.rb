@@ -2,12 +2,12 @@ class GithubWebhooksController < ApplicationController
   def author_webhook
     action = params["github_webhook"]["action"]
     case action
-    when "opend"
+    when "opened"
       create_author(params["issue"])
     when "edited"
-      update_author(params["issue"]) 
+      update_author(params["issue"])
     when "deleted"
-      delete_author(params["issue"])  
+      delete_author(params["issue"])
     end
   end
 
@@ -17,17 +17,18 @@ class GithubWebhooksController < ApplicationController
   end
 
   def update_author(issue)
-    author = set_author(issue["number"])	
-    author.update_attributes(name: issue["title"], biography: issue["body"]) if author   	
+    author = find_author(issue["number"])
+    author.update_attributes(name: issue["title"], biography: issue["body"]) if author
   end
 
   def delete_author(issue)
-    author = set_author(issue["number"])
+    author = find_author(issue["number"])
     author.destroy if author
   end
 
   private
-  def set_author(id)
-    Author.find_by_github_id(id)	
+
+  def find_author(id)
+    Author.find_by_github_id(id)
   end
 end
