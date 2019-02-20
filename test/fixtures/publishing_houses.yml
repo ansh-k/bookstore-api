@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  discount: 9.99
+  discount: 0.99
 
 two:
   name: MyString
-  discount: 9.99
+  discount: 0.99
