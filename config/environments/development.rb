@@ -46,6 +46,7 @@ Rails.application.configure do
 
   ENV['USERNAME']="ansh-k"
   ENV['REPOSITORY']="bookstore-api"
+  ENV['OAUTH']="INSERT OAUTH KEY"
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
