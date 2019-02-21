@@ -5,6 +5,7 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/spec_helper.rb'
     - 'db/migrate/**'
+    - 'config/**/*'
 
 MethodLength:
   Max: 300
@@ -17,7 +18,6 @@ Metrics/LineLength:
 
 Metrics/AbcSize:
   Max: 21
-  Exclude:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -32,4 +32,10 @@ Lint/AssignmentInCondition:
   Enabled: false
 
 Metrics/BlockLength:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
   Enabled: false
