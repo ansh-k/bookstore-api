@@ -1,4 +1,6 @@
 class GithubWebhooksController < ApplicationController
+  
+  # POST /author_webhook
   def author_webhook
     action = params["github_webhook"]["action"]
     case action
@@ -13,7 +15,7 @@ class GithubWebhooksController < ApplicationController
 
   def create_author(issue)
     author = Author.create(name: issue["title"], biography: issue["body"], github_id: issue["number"])
-    Book.create(title: author.name, author: author, publisher: author)
+    author.books.create(title: author.name, publisher: author)
   end
 
   def update_author(issue)
