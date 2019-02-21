@@ -18,7 +18,7 @@ namespace :sync_github do
   # This task update github with our DB data
   desc "Sync github from db"
   task :author_details_to_github => :environment do
-    github = Github.new user: ENV['USERNAME'], repo: ENV['REPOSITORY']
+    github = Github.new user: ENV['USERNAME'], repo: ENV['REPOSITORY'], oauth_token: ENV['OAUTH']
     authors = Author.where(github_id: nil)
     authors.each do |author|
       response = github.issues.create(title: author.name, body: author.biography)        
