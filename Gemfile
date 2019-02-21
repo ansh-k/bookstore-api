@@ -51,3 +51,5 @@ gem "active_model_serializers", "~> 0.10.2"
 
 # For integration with github
 gem "github_api"
+# For Fake data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'

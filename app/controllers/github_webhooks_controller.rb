@@ -15,7 +15,7 @@ class GithubWebhooksController < ApplicationController
 
   def create_author(issue)
     author = Author.create(name: issue["title"], biography: issue["body"], github_id: issue["number"])
-    author.books.create(title: author.name, publisher: author)
+    author.books.create(title: Faker::Book.title, publisher: author)
   end
 
   def update_author(issue)
