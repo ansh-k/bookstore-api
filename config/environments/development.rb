@@ -44,7 +44,9 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-
+  ENV['USERNAME']="ansh-k"
+  ENV['REPOSITORY']="bookstore-api"
+  ENV['OAUTH']="64f067055b95bd6878ec794b88c0747194993f20"
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

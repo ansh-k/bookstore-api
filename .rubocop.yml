@@ -1,0 +1,41 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/**'
+    - 'vendor/**/*'
+    - 'spec/spec_helper.rb'
+    - 'db/migrate/**'
+    - 'config/**/*'
+
+MethodLength:
+  Max: 300
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/LineLength:
+  Max: 125
+
+Metrics/AbcSize:
+  Max: 21
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
