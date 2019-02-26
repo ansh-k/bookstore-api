@@ -7,8 +7,7 @@ namespace :sync_github do
     issues.each do |issue|
       author = Author.find_by_github_id(issue["number"])    
       if author.blank?
-        author = Author.create(name: issue["title"], biography: issue["body"], github_id: issue["number"])
-        author.books.create(title: Faker::Book.title, publisher: author)
+        Author.create_author_and_book(issue)
       else
         author.update_attributes(name: issue["title"], biography: issue["body"])
       end

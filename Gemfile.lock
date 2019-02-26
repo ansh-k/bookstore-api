@@ -69,6 +69,10 @@ GEM
     crass (1.0.4)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
+    dotenv (2.7.1)
+    dotenv-rails (2.7.1)
+      dotenv (= 2.7.1)
+      railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -195,8 +199,9 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.2)
   bootsnap (>= 1.1.0)
   byebug
+  dotenv-rails
   faker!
-  github_api
+  github_api (~> 0.18.2)
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.0.0)
   puma (~> 3.11)
