@@ -2,7 +2,7 @@ class GithubWebhooksController < ApplicationController
   
   # POST /author_webhook
   def author_webhook
-    action = params["github_webhook"]["action"]
+    action = params.dig(:github_webhook, :action)
     case action
     when "opened"
       create_author(params["issue"])
@@ -14,8 +14,7 @@ class GithubWebhooksController < ApplicationController
   end
 
   def create_author(issue)
-    author = Author.create(name: issue["title"], biography: issue["body"], github_id: issue["number"])
-    author.books.create(title: Faker::Book.title, publisher: author)
+    Author.create_author_and_book(issue)
   end
 
   def update_author(issue)
@@ -31,6 +30,6 @@ class GithubWebhooksController < ApplicationController
   private
 
   def find_author(id)
-    Author.find_by_github_id(id)
+    Author.find_by(github_id: id)
   end
 end

@@ -9,6 +9,11 @@
 	```
 	cd bookmark-api
 	```
+1. Copy the `.sample.env` file as `.env` and then add your actual values into
+the `.env` file, and we don't track that file through source control.
+	```
+	cp .sample.env .env
+	```
 1. Install required gems
 	```
 	bundle install
