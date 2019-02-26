@@ -8,7 +8,7 @@ class Author < ApplicationRecord
 
   def self.create_author_and_book(issue)
     ActiveRecord::Base.transaction do
-      author = Author.create(name: issue["title"], biography: issue["body"], github_id: issue["number"])
+      author = Author.create(name: issue.dig(:title), biography: issue.dig(:body), github_id: issue.dig(:number))
       author.books.create(title: Faker::Book.title, publisher: author)
     end
   end
