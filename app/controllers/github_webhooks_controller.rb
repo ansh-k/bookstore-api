@@ -3,13 +3,14 @@ class GithubWebhooksController < ApplicationController
   # POST /author_webhook
   def author_webhook
     action = params.dig(:github_webhook, :action)
+    issue = params.dig(:issue)
     case action
     when "opened"
-      create_author(params["issue"])
+      create_author(issue)
     when "edited"
-      update_author(params["issue"])
+      update_author(issue)
     when "deleted"
-      delete_author(params["issue"])
+      delete_author(issue)
     end
   end
 
@@ -18,12 +19,12 @@ class GithubWebhooksController < ApplicationController
   end
 
   def update_author(issue)
-    author = find_author(issue["number"])
-    author.update_attributes(name: issue["title"], biography: issue["body"]) if author
+    author = find_author(issue.dig(:number))
+    author.update_attributes(name: issue.dig(:title), biography: issue.dig(:body)) if author
   end
 
   def delete_author(issue)
-    author = find_author(issue["number"])
+    author = find_author(issue.dig(:number))
     author.destroy if author
   end
 
